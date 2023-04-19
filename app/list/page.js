@@ -13,8 +13,17 @@ export default async function List() {
           <Link href={`/detail/${cV._id}`} prefetch={false}>
             <h4>{cV.title}</h4>
           </Link>
-          <DetailLink href={`/detail/${cV._id}`} />
           <p>{cV.content}</p>
+          <div
+            style={{
+              display: "flex",
+              gap: "8px",
+              margin: "8px 0",
+            }}
+          >
+            <DetailLink href={`/detail/${cV._id}`} message='보기' />
+            <DetailLink href={`/update/${cV._id}`} message='수정' />
+          </div>
         </div>
       );
     });

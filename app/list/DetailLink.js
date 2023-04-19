@@ -1,7 +1,7 @@
 "use client";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
-export default function DetailLink({ href }) {
+export default function DetailLink({ href, message }) {
   const router = useRouter();
 
   // current url
@@ -17,5 +17,9 @@ export default function DetailLink({ href }) {
     router.push(href);
   };
 
-  return <button onClick={onHandleBtn}>버튼</button>;
+  return (
+    <button style={{ cursor: "pointer" }} onClick={onHandleBtn}>
+      {message}
+    </button>
+  );
 }
