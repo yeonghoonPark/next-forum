@@ -46,6 +46,7 @@ button {
 .navbar {
   background: white;
   padding: 20px;
+  border-bottom: 1px solid black;
 }
 .navbar a {
   margin-right: 10px;

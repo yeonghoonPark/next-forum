@@ -29,11 +29,15 @@ export default function ListItem({ result }) {
           return res.json();
         } else {
           // 서버가 에러코드 전송시 실행할 코드, 즉 status가 200이 아닐시
+          return res.json();
         }
       })
       // 성공시 실행 할 코드
       .then((res) => {
         console.log(res);
+        if (res.success !== true) {
+          return alert(`${res.message}`);
+        }
         alert("Post has been deleted");
         router.refresh();
       })

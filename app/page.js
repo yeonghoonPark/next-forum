@@ -11,9 +11,6 @@ export default async function Home() {
   return (
     <div>
       <h1>This is Forum</h1>
-      <p>{result[0]._id}</p>
-      <p>{result[0].title}</p>
-      <p>{result[0].content}</p>
     </div>
   );
 }
