@@ -56,6 +56,7 @@ export default function ListItem({ result }) {
               <h4>{cV.title}</h4>
             </Link>
             <p>{cV.content}</p>
+            <p>{cV.author}</p>
             <div
               style={{
                 display: "flex",
