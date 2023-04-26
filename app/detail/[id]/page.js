@@ -1,5 +1,6 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
+import { notFound } from "next/navigation";
 
 import Comment from "./Comment";
 import LikeDislike from "./LikeDislike";
@@ -9,6 +10,10 @@ export default async function Detail(props) {
   const result = await db
     .collection("post")
     .findOne({ _id: new ObjectId(`${props.params.id}`) });
+
+  if (result == null) {
+    return notFound();
+  }
 
   return (
     <div>
