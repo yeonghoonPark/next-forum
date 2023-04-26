@@ -14,10 +14,19 @@ export default async function handler(req, res) {
   // console.log(req.body, "바디");
 
   if (req.method === "POST") {
-    // console.log(req.body);
+    console.log(req.body);
 
     const db = (await connectDB).db("forum");
-    const result = await db.collection("post").insertOne(req.body);
+
+    const obj = {
+      author: req.body.author,
+      title: req.body.title,
+      content: req.body.content,
+      like: 0,
+      dislike: 0,
+    };
+
+    const result = await db.collection("post").insertOne(obj);
 
     if (req.body.title === "" || req.body.content === "") {
       return res.status(500).json({ message: "빈 칸 없이 입력해주세요." });

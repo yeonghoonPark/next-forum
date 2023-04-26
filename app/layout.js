@@ -22,6 +22,7 @@ export default async function RootLayout({ children }) {
           </Link>
           <Link href='/list'>List</Link>
           <Link href='/register'>가입</Link>
+          {session && <Link href='/write'>글쓰기</Link>}
           <LoginBtn session={session} />
           {session && (
             <span style={{ float: "right", lineHeight: "2rem" }}>

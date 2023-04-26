@@ -2,6 +2,7 @@ import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 
 import Comment from "./Comment";
+import LikeDislike from "./LikeDislike";
 
 export default async function Detail(props) {
   const db = (await connectDB).db("forum");
@@ -11,9 +12,12 @@ export default async function Detail(props) {
 
   return (
     <div>
-      <h4>상세페이지</h4>
-      <h4>{result.title}</h4>
-      <p>{result.content}</p>
+      <h1>상세페이지</h1>
+      <div style={{ border: "1px solid black", padding: "1rem" }}>
+        <h4>{result.title}</h4>
+        <p>{result.content}</p>
+        <LikeDislike result={result} />
+      </div>
       <Comment result={result} />
     </div>
   );
